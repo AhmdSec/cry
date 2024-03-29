@@ -1,0 +1,35 @@
+body {
+    font-family: 'Consolas', 'Lucida Console', monospace;
+    background-color: #012456; /* Dark blue background */
+    color: #ffffff; /* White text */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 600px; /* Set width to match Command Prompt window size */
+    margin: 50px auto;
+    background-color: #001e3a; /* Darker blue container background */
+    border: 2px solid #00509d; /* Border color */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+}
+
+#editor {
+    border: none; /* No border */
+    padding: 10px;
+    min-height: 300px; /* Set minimum height */
+    background-color: #001e3a; /* Darker blue editor background */
+    color: #ffffff; /* White text */
+    font-size: 16px;
+    outline: none; /* Remove outline */
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+}
+
+#saveBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007acc; /* Blue button */
+    color: #ffffff; /* White text */
+    border: none;
