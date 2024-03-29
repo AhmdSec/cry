@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Text Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>System Info</title>
 </head>
 <body>
     <div class="container">
-        <div id="editor" contenteditable="true">
-            <!-- This is where the editable text will appear -->
-        </div>
-        <button id="saveBtn">Save</button>
-        <div id="savedTextContainer">
-            <!-- Saved text will be displayed here -->
-        </div>
+        <button id="saveBtn">Save System Info</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            getSystemInfo();
+        });
+
+        function getSystemInfo() {
+            // You can collect system information here using JavaScript
+            // For demonstration purposes, let's create a dummy system info
+            const systemInfo = 'Dummy system information\nOperating System: Windows 10\nProcessor: Intel Core i7\nMemory: 16GB\n';
+
+            // Create a Blob containing the system info
+            const blob = new Blob([systemInfo], { type: 'text/plain' });
+
+            // Create a link element to trigger the download
+            const a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'system_info.txt';
+            a.style.display = 'none'; // Hide the link
+            document.body.appendChild(a);
+
+            // Trigger the download
+            a.click();
+
+            // Clean up
+            window.URL.revokeObjectURL(a.href);
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
 </html>
