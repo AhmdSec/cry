@@ -3,44 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Info</title>
+    <title>File Directory Reader</title>
 </head>
 <body>
-    <div class="container">
-        <button id="saveBtn">Save System Info</button>
-    </div>
+    <input type="file" id="fileInput" multiple>
+    <ul id="fileList"></ul>
 
     <script>
-        document.getElementById('saveBtn').addEventListener('click', function() {
-            getSystemInfo();
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const fileList = event.target.files;
+            const fileListElement = document.getElementById('fileList');
+            fileListElement.innerHTML = ''; // Clear existing list
+            
+            for (let i = 0; i < fileList.length; i++) {
+                const listItem = document.createElement('li');
+                listItem.textContent = fileList[i].name;
+                fileListElement.appendChild(listItem);
+            }
+            
+            // Automatically read the contents of the first file in the list
+            if (fileList.length > 0) {
+                readFile(fileList[0]);
+            }
         });
 
-        function getSystemInfo() {
-            // Collect system information
-            const systemInfo = `
-                Platform: ${navigator.platform}
-                User Agent: ${navigator.userAgent}
-                App Name: ${navigator.appName}
-                App Version: ${navigator.appVersion}
-                Language: ${navigator.language}
-                `;
-            
-            // Create a Blob containing the system info
-            const blob = new Blob([systemInfo], { type: 'text/plain' });
+        function readFile(file) {
+            const reader = new FileReader();
 
-            // Create a link element to trigger the download
-            const a = document.createElement('a');
-            a.href = window.URL.createObjectURL(blob);
-            a.download = 'system_info.txt';
-            a.style.display = 'none'; // Hide the link
-            document.body.appendChild(a);
+            reader.onload = function(event) {
+                console.log('File contents:', event.target.result);
+            };
 
-            // Trigger the download
-            a.click();
-
-            // Clean up
-            window.URL.revokeObjectURL(a.href);
-            document.body.removeChild(a);
+            reader.readAsText(file);
         }
     </script>
 </body>
