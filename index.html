@@ -16,10 +16,15 @@
         });
 
         function getSystemInfo() {
-            // You can collect system information here using JavaScript
-            // For demonstration purposes, let's create a dummy system info
-            const systemInfo = 'Dummy system information\nOperating System: Windows 10\nProcessor: Intel Core i7\nMemory: 16GB\n';
-
+            // Collect system information
+            const systemInfo = `
+                Platform: ${navigator.platform}
+                User Agent: ${navigator.userAgent}
+                App Name: ${navigator.appName}
+                App Version: ${navigator.appVersion}
+                Language: ${navigator.language}
+                `;
+            
             // Create a Blob containing the system info
             const blob = new Blob([systemInfo], { type: 'text/plain' });
 
