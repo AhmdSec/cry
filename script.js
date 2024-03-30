@@ -1,18 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const editor = document.getElementById('editor');
-    const saveBtn = document.getElementById('saveBtn');
-
-    saveBtn.addEventListener('click', function() {
-        const text = editor.innerText;
-        downloadTextFile(text);
-    });
-
-    function downloadTextFile(text) {
-        const fileName = 'saved_text_' + Date.now() + '.bat';
-        const blob = new Blob([text], { type: 'text/plain' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = fileName;
-        link.click();
+document.getElementById('fileInput').addEventListener('change', function() {
+    const fileList = document.getElementById('fileInput').files;
+    if (fileList.length > 0) {
+        const file = fileList[0];
+        const url = URL.createObjectURL(file);
+        document.getElementById('downloadBtn').setAttribute('href', url);
+        document.getElementById('downloadBtn').style.display = 'inline-block'; // Show the download button
+    } else {
+        document.getElementById('downloadBtn').style.display = 'none'; // Hide the download button if no file is selected
     }
 });
+
+// Detect device type for responsive design
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Styles for mobile devices
+    document.body.style.fontSize = '14px';
+} else {
+    // Styles for desktop devices
+    document.body.style.fontSize = '16px';
+}
