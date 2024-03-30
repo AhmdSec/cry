@@ -1,52 +1,89 @@
+/* Default styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px 0;
     text-align: center;
+    margin-top: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-header h1 {
-    margin: 0;
+#editor {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-main {
-    padding: 20px 0;
-}
-
-input[type="file"] {
-    margin-bottom: 10px;
-}
-
-#downloadBtn {
+select, #downloadBtn {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
-    display: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+select {
+    margin-right: 10px;
 }
 
 #downloadBtn:hover {
     background-color: #0056b3;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+/* Media queries for different devices */
+/* Small devices (phones) */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    #editor {
+        padding: 5px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Specific styles for Chrome browser */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    body {
+        font-size: 20px;
+    }
+}
+
+/* Specific styles for Firefox browser */
+@-moz-document url-prefix() {
+    body {
+        font-size: 22px;
+    }
+}
+
+/* Specific styles for Safari browser */
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    body {
+        font-size: 18px;
+    }
 }
