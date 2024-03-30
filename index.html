@@ -3,51 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload and Save</title>
-    <!-- FileSaver.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-        }
-        #fileInput {
-            margin-bottom: 10px;
-        }
-        #downloadBtn {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            display: none; /* Hidden by default */
-        }
-        #downloadBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Cloud Company</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <input type="file" id="fileInput" multiple>
-    <a id="downloadBtn" download>Download Selected File</a>
-
-    <script>
-        document.getElementById('fileInput').addEventListener('change', function() {
-            const fileList = document.getElementById('fileInput').files;
-            if (fileList.length > 0) {
-                const file = fileList[0];
-                const url = URL.createObjectURL(file);
-                document.getElementById('downloadBtn').setAttribute('href', url);
-                document.getElementById('downloadBtn').style.display = 'inline-block'; // Show the download button
-            } else {
-                document.getElementById('downloadBtn').style.display = 'none'; // Hide the download button if no file is selected
-            }
-        });
-    </script>
+    <header>
+        <div class="container">
+            <h1>Cloud Company</h1>
+            <p>Your reliable cloud storage solution</p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <input type="file" id="fileInput" multiple>
+            <a id="downloadBtn" download>Download Selected File</a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cloud Company. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
