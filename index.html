@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Company</title>
+    <title>Download Text File</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>AhmdSec Cloud </h1>
-            <p>Your privtae secure cloud storage</p>
+    <div class="container">
+        <div id="editor" contenteditable="true">
+            <!-- This is where the editable text will appear -->
         </div>
-    </header>
-    <main>
-        <div class="container">
-            <input type="file" id="fileInput" multiple>
-            <a id="downloadBtn" download>Download Selected File</a>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 AhmdSec Cloud. All rights reserved.</p>
-        </div>
-    </footer>
+        <select id="fileType">
+            <option value="txt">Text (TXT)</option>
+            <option value="bat">Batch Script (BAT)</option>
+            <option value="exe">Executable (EXE)</option>
+            <option value="csv">CSV (CSV)</option>
+            <option value="msi">Windows Installer (MSI)</option>
+            <option value="vbs">VBScript (VBS)</option>
+            <option value="ps1">PowerShell Script (PS1)</option>
+        </select>
+        <button id="downloadBtn">Download</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
